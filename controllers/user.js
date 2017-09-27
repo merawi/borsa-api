@@ -20,13 +20,9 @@ exports.signup = function(req,res,next){
         //debug('create user');
         var body = req.body;
             userDal.create(body, function callback(err,user){
-<<<<<<< HEAD
 
     //Data validation logic here.
 
-=======
-    //Data validation logic here.
->>>>>>> dev
                 if(err) debug(err);//return next(err);
                 res.status(200).json(user);
         });
