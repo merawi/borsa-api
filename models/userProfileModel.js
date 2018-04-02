@@ -10,8 +10,12 @@ var userProfile  = new mongoose.Schema({
     Wallet : {type : Schema.Types.ObjectId, ref :'Wallet'},
     Accounts : [{type : Schema.Types.ObjectId, ref : 'BAccount'}],
     DateOfBirth : {type : Date, default : Date.now()},
+    ResidenceAddress : {type : Schemal.Types.ObjectId, ref:'Address'},
+    AlternativeEmails : [{type : Schema.Types.ObjectId, ref: 'Emails'}],
+    AlternativePhoneNos : [{type : Schema.Types.ObjectId, ref: 'Phone'}],
+    AccessedOn : {type : Date, default : Date.now()},
     CreatedOn : {type : Date, default : Date.now()},
-    LastModified: {type : Date, default : Date.now()}   
+    LastModifiedOn: {type : Date, default : Date.now()}   
 })
 
 module.exports = {

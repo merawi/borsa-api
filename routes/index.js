@@ -1,12 +1,16 @@
 //Load Dependencies
-var express  = require('express');
 
-var userRouter = require('./user');
+var express = require('express');
+
+var userRouter = require('./userRouter');
 
 
-module.exports = function routerInit(app){
+module.exports = function initRouter(app){
+
 	app.use('/user', userRouter);
 }
+
+
 
 
 

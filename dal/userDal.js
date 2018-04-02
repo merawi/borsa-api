@@ -1,11 +1,12 @@
 //Load Depenencies
-var User = require('../models/user');
+var User = require('../models/userModel');
 var debug = require('debug')('borsa:user_data_access')
 //to activate debug logs, use: SET DEBUG=borsa* //on the command line before running the program
 
-
  //Signup
- exports.create  = function createUser(userData, callback){
+
+ exports.createUser
+   = function createUser(userData, callback){
      var userModel = new User(userData);
      userModel.save(function(err,user){
         debug('creating user...');
@@ -13,7 +14,7 @@ var debug = require('debug')('borsa:user_data_access')
             return console.log(err);//callback(err);
         }
 
-        exports.get({_id:user._id}, function(err,user){
+        exports.find({_id:user._id}, function(err,user){
             if(err){
                 return callback(err);
             }
@@ -27,6 +28,14 @@ var debug = require('debug')('borsa:user_data_access')
  exports.find = function findUser(query, callback){
      debug('Finding user...', query);
      User.findOne(query, function(err, data){
+         if(err || !data) callback();
+         callback(null, data);
+     });
+ }
+
+  exports.findUserById = function findUser(param, callback){
+     debug('Finding user...', query);
+     User.findOne({_id:param}, function(err, data){
          if(err || !data) callback();
          callback(null, data);
      });

@@ -2,8 +2,8 @@
 var config 		= require('./config');
 var express 	= require('express');
 var debug 		= require('debug')('borsa-api');
-//use debug as: set DEBUG=borsa*
-//var routes 		= express.Router();
+//Note: use debug as: set DEBUG=borsa*
+var routes 		= express.Router();
 var bodyParser 	= require('body-parser');
 var config 		= require('./config');
 var mongoose 	= require('mongoose');
@@ -15,7 +15,7 @@ var validator 	= require('express-validator');
 var app  = express();
 app.use(bodyParser.json());
 app.use(validator());
-
+	
 //Db Connection
  mongoose.connect(config.db.URI);
  mongoose.connection.on('connected', function(){
@@ -39,6 +39,7 @@ app.get('/user/register', function(req, res, next){
 
 //Error handler middleware
 app.use(function(err,req,res,next){
+    debug('app returning error');
     res.status(500).send(err);//'Something went wrong. Please try again later!');
 })
 
