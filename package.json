@@ -29,9 +29,7 @@
     "type": "git",
     "url": "borsa"
   },
-  "keywords": [
-    "borsa"
-  ],
+  
   "author": "merawi",
   "license": "MIT"
 }
