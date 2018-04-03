@@ -6,7 +6,7 @@ module.exports =  {
     	PASSWORD_LENGTH : 5
     },    
     server : {
-    	PORT : '8888'
+    	PORT : '9988'
     }
     
 }
